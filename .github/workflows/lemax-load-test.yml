@@ -33,7 +33,7 @@ jobs:
       - name: Run API Load Tests for Booking User Flow
         env:
           TOKEN_URL: ${{ secrets.TOKEN_URL }}
-          BASE_URL: ${{ secrets.HOST_URL }}
+          HOST_URL: ${{ secrets.HOST_URL }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: |
@@ -62,7 +62,7 @@ jobs:
       - name: Download Report Artifact
         uses: actions/download-artifact@v3
         with:
-          name: behave-report
+          name: locust-report
           path: ./reports  # Download to the reports directory
 
       - name: Deploy to GitHub Pages
